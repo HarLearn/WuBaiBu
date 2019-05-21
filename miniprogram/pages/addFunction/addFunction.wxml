@@ -1,0 +1,26 @@
+<!--pages/addFunction/addFunction.wxml-->
+<view class="container">
+
+  <view class="list">
+    <view class="list-item" bindtap="testFunction">
+      <text>测试云函数</text>
+    </view>
+    <view class="list-item" bindtap="testLoginFunction">
+      <text>数据库添加数据</text>
+    </view>
+    <view class="list-item" bindtap="testSelectFunction">
+      <text>数据库查询数据</text>
+    </view>
+    <view class="list-item" bindtap="testUpdateFunction">
+      <text>数据库修改数据</text>
+    </view>
+    <view class="list-item" bindtap="testdeleteFunction">
+      <text>数据库删除数据</text>
+    </view>
+    <view class="list-item" wx:if="{{result}}">
+      <text class="request-text">调用结果：{{result}}</text>
+    </view>
+  </view>
+
+
+</view>
