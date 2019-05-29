@@ -1,0 +1,364 @@
+/* miniprogram/pages/mine/mine.wxss */
+
+.input{
+  display:inline-flex;
+  height:15px;
+  width:15px;
+  top:5px;
+  size:15px;
+  position:relative;
+  left:180px;
+}
+
+/*弹窗*/
+/*输入设置*/
+.input-time{
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(77, 75, 75);
+  background-color: rgb(255, 255, 255);
+}
+
+/*模块设置*/
+.mineTitleBlock{
+  width: 690rpx;
+  height:360rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  border-radius: 9px;
+  background: linear-gradient(rgb(45, 183, 245),rgb(179, 207, 233));
+  /* border: 1px #09d145 solid */
+}
+.mineContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height:180rpx;
+
+  padding-top: 16rpx;
+  /* border: 1px #e40a0a solid */
+}
+/*头像设置*/
+.title-image{
+  width: 60px;
+  height: 60px;
+  border-radius:50%;
+  /* border: 1px #e40a0a solid */
+ }
+ 
+ /*昵称样式*/
+ .title-name{
+   width: 300px;
+   text-align:center;
+   /* border: 1px #4b0ae4 solid; */
+ }
+
+ /*用户名输入*/
+.text{
+  height:15px;
+  width:15px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40rpx;
+  font-size: 32rpx;
+}
+
+.block-fun{
+  height:150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px #c3ec0d solid; */
+}
+
+.fun{
+  height: 100%;
+  width: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px #2e0dec solid; */
+}
+/* 分割线 */
+.fun-line{
+  width: 1px;
+  height: 100%;
+  /* border: 1px #444443 solid; */
+  background-color: rgba(0, 0, 0, 0.12);
+}
+/* 信用和佣金的块布局 */
+.fun-block{
+  width: 130px;
+  text-align: center;
+  /* border: 1px #ec0d32 solid; */
+}
+/* 提示字体样式 */
+.fun-describe{
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40rpx;
+  font-size: 28rpx;
+
+  color: rgba(0, 0, 0, 0.543846);
+}
+/* 下面都是来自order  需要进行修改 */
+.interactiveBlock1{
+  width: 690rpx;
+  height: 256rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  background: #FAFAFA;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
+}
+
+.block-content1{
+  padding-top: 16rpx;
+}
+
+.img1{
+  background: #9D9D9D;
+}
+
+.split-content1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+   position:center;
+}
+
+.title-content1{
+  width: 560rpx;
+ }
+
+.address1{
+  width: 528rpx;
+  height: 48rpx;
+}
+
+.address-content1{
+  display: flex;
+  flex-direction: row;
+}
+
+.text-content1{
+  width: 206rpx;
+  height: 32rpx;
+
+  margin-top: 4rpx;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32rpx;
+  font-size: 26rpx;
+  letter-spacing: 0.0384615em;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+
+  color: rgba(0, 0, 0, 0.54);
+}
+
+image{
+  width: 100rpx;
+  height: 100rpx;
+  
+}
+
+/* 所有订单纵向排布 */
+.orderList{
+  display: flex;
+  flex-direction: column;
+}
+/* 底部提示栏的样式 */
+.foot{
+  width: 690rpx;
+  height: 106rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  margin-bottom: 20px;
+  background: #FAFAFA;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.foot-content{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32rpx;
+  font-size: 35rpx;
+  letter-spacing: 0.0384615em;
+  color: rgba(0, 0, 0, 0.54);
+  /* border: 1px solid #07e612; */
+}
+
+.detail1{
+  width: 528rpx;
+  height: 120rpx;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40rpx;
+  font-size: 28rpx;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  color: rgba(0, 0, 0, 0.543846);
+}
+
+.line1{
+  width: 562rpx;
+  height: 2rpx;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+
+/* 下面是块 */
+.interactiveBlock{
+  width: 690rpx;
+  height: 226rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  background: #FAFAFA;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
+}
+
+.block-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16rpx;
+}
+
+.content-block{
+  width: 640rpx;
+  /* border: 1px solid #131000; */
+}
+
+.split-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position:center;
+  /* border: 1px solid #16e053; */
+}
+
+.title-content{
+  width: 640rpx;
+  /* border: 1px solid #e70941; */
+ }
+
+ .address{
+  width: 640rpx;
+  height: 48rpx;
+}
+
+.detail{
+  width: 636rpx;
+  height: 86rpx;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40rpx;
+  font-size: 28rpx;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  color: rgba(0, 0, 0, 0.543846);
+  /* border: 1px solid #f106be; */
+}
+
+.text-content{
+  width: 630rpx;
+  height: 32rpx;
+
+  margin-top: 4rpx;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32rpx;
+  font-size: 26rpx;
+  letter-spacing: 0.0384615em;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+
+  color: rgba(0, 0, 0, 0.54);
+  /* border: 1px solid #fcd603; */
+}
+
+/* 下面是弹窗的所有 CSS */
+.mask{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  /* height: 80%; */
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.modal-btn-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 2rpx solid rgba(7,17,27,0.1);
+}
+
+.cancel-btn, .confirm-btn{
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.cancel-btn{
+  border-right: 2rpx solid rgba(7,17,27,0.1);
+}
+
+.main-content{
+  flex: 1;
+  height: 100%;
+  overflow-y: hidden; 
+}

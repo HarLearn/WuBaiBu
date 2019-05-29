@@ -1,16 +1,24 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
 	"appid": "wx0b945e3060417b1f",
-	"projectname": "%E7%89%A9%E7%99%BE%E6%AD%A5",
-	"libVersion": "2.2.5",
+	"projectname": "wubaibu",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -27,38 +35,12 @@
 			"list": []
 		},
 		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": 6,
 			"list": [
-				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "home",
-					"pathName": "pages/home/home",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "添加页面",
-					"pathName": "pages/add/add",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单页面",
-					"pathName": "pages/order/order",
-					"query": "",
-					"scene": null
-				},
 				{
 					"id": -1,
 					"name": "我的",
@@ -68,15 +50,43 @@
 				},
 				{
 					"id": -1,
-					"name": "详细",
+					"name": "index页面",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "home页面",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "add页面",
+					"pathName": "pages/add/add",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "add页面",
+					"pathName": "pages/add/add",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mineDetail页面",
 					"pathName": "pages/mineDetail/mineDetail",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "测试云函数",
-					"pathName": "pages/addFunction/addFunction",
+					"name": "mine页面",
+					"pathName": "pages/mine/mine",
 					"scene": null
 				}
 			]
