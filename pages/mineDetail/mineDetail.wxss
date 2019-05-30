@@ -1,0 +1,34 @@
+/* miniprogram/pages/mineDetail/mineDetail.wxss */
+
+.context{
+    width: 750rpx;
+    height: 100%;
+  }
+
+.interactiveBlock{
+    width: 690rpx;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20rpx;
+    margin-bottom: 40rpx;
+    background: #FAFAFA;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
+  }
+
+.save-button{
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-size{
+  width: 600rpx;
+  height: 45px;
+}
+
+.space{
+  height: 15px;
+}

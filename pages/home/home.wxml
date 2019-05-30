@@ -1,0 +1,210 @@
+<!--miniprogram/pages/home/home.wxml-->
+<!-- 弹窗 -->
+<view class='mask' wx:if='{{isShowPop}}' catchtouchmove="ture">
+  <view class='modal-content' style='height:{{height}}'>
+    <scroll-view scroll-y class='main-content'>
+      <van-cell-group>
+        <!-- 需求 -->
+        <van-field
+          value="{{popBlockData.title}}"
+          label="标题"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+        <!-- 详解介绍输入框 -->
+        <van-field
+          value="{{popBlockData.detailIntro}}"
+          label="详细介绍"
+          type="textarea"
+          fixed="{{true}}"
+          autosize="{{true}}"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+        <!-- 开始时间 -->
+        <van-field
+          value="{{popBlockData.startTime}}"
+          label="开始时间"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+        <!-- 结束时间 -->
+        <van-field
+          value="{{popBlockData.endTime}}"
+          label="结束时间"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+        <!-- 开始地点 -->
+        <van-field
+          value="{{popBlockData.startSpace}}"
+          label="开始地点"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+        <!-- 结束地点 -->
+        <van-field
+          value="{{popBlockData.endSpace}}"
+          label="结束地点"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+        <!-- 佣金 -->
+        <van-field
+          value="￥{{popBlockData.onMoney}}元"
+          label="佣金"
+          input-align="right"
+          disabled
+          border="{{ false }}"
+        />
+      </van-cell-group>
+      <view wx:if="{{popBlockData.isAccept}}">
+        <van-cell-group>
+          <!-- 联系人 -->
+          <van-field
+            value="{{popBlockData.orderName}}"
+            label="联系人"
+            input-align="right"
+            disabled
+            border="{{ false }}"
+          />
+          <!-- 联系人电话 -->
+          <van-field
+            value="{{popBlockData.orderPhone}}"
+            label="手机号"
+            type = "number"
+            input-align="right"
+            disabled
+            border="{{ false }}"
+          />
+          <!-- 取货码 -->
+          <van-field
+            value="{{popBlockData.pickUpCode}}"
+            label="取货码"
+            input-align="right"
+            disabled
+            border="{{ false }}"
+          />
+        </van-cell-group>
+      </view>
+    </scroll-view>
+    <view class='modal-btn-wrapper'>
+      <view class='cancel-btn' style='color:rgba(7,17,27,0.6)' bindtap='cancel'>取消</view>
+      <view wx:if="{{!popBlockData.isAccept}}" class='confirm-btn' style='color:#13b5f5' bindtap='confirm'>接单</view>
+    </view>
+  </view>
+</view>
+<!-- 弹出确认订单完成的窗口 -->
+<view class='mask' wx:if='{{isShowOrderConfig}}' catchtouchmove="ture">
+  <view class='modal-content' style='height:{{height}}'>
+    <scroll-view scroll-y class='main-content'>
+      <view wx:for="{{orderConfigData}}" wx:for-index="id" wx:for-item="itemOrder" wx:key="unique">
+        <view wx:if="{{!itemOrder.isComplete}}">
+          <van-cell-group>
+            <van-field
+              value="{{ itemOrder.title }}"
+              center
+              clearable
+              disabled
+              label="需求"
+              border="{{ false }}"
+              use-button-slot
+            >
+              <van-button slot="button" size="small" type="primary" bind:click="onClickOrder" id="{{itemOrder.objectId}}" data-orderId="{{id}}" >确认收货</van-button>
+            </van-field>
+          </van-cell-group>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='modal-btn-wrapper'>
+      <view class='cancel-btn' style='color:rgba(7,17,27,0.6)' bindtap='cancelConfigOrder'>取消</view>
+    </view>
+  </view>
+</view>
+<!-- 展示二维码的弹窗 -->
+<van-dialog
+  use-slot
+  show="{{ isShowQR }}"
+  showConfirmButton = "{{false}}"
+  showCancelButton = "{{true}}"
+  cancel-button-text = "关闭二维码"
+  bind:close="cancelShowQR"
+>
+   <canvas canvas-id="qrcode" class="canvasid" />
+</van-dialog>
+
+<scroll-view scroll-y class='container'>
+  <view class="home">
+    <!--添加按钮跳转-->
+    <view class="addwater">
+      <view class="jump"  type="primary" bindtap="add" >
+        <van-icon name="plus" size="40px" color="#fff"/>
+      </view>
+    </view>
+    <!--顶部地址栏-->
+    <view class="locationBlock">
+      <view class="locationContent">
+        <view class="userLocation" >
+          <view class="location" bindtap="onUserAddress">
+            <van-icon name='location-o'/>
+            <text class="text-content">{{userLocation}}</text>
+          </view>
+          <view class="qrBlock">
+            <van-icon name="qr" size="22px" bindtap="isShowQR"/>
+            <van-icon name="scan" size="22px" bindtap="onScanQR" />
+          </view>
+        </view>
+        <!-- 设置类型标签进行选择 -->
+        <view class="user-tag">
+          <van-tag color="{{colorList[0]}}" size="large" plain="{{isPlain[0]}}" bindtap="isShowCode" id="0" >所有</van-tag>
+          <van-tag color="{{colorList[1]}}" size="large" plain="{{isPlain[1]}}" bindtap="isShowCode" id="1" >大件快递</van-tag>
+          <van-tag color="{{colorList[2]}}" size="large" plain="{{isPlain[2]}}" bindtap="isShowCode" id="2" >小件快递</van-tag>
+          <van-tag color="{{colorList[3]}}" size="large" plain="{{isPlain[3]}}" bindtap="isShowCode" id="3" >外卖</van-tag>
+          <van-tag color="{{colorList[4]}}" size="large" plain="{{isPlain[4]}}" bindtap="isShowCode" id="4" >其他</van-tag>
+        </view>
+      </view>
+    </view>
+    <!--模块设置-->
+    <!-- <view wx:for="{{blockData}}" wx:key="unique"  wx:for-index="idx" wx:for-item="itemName" >
+    </view> -->
+    <view wx:for="{{blockData}}" wx:key="unique"  wx:for-index="idx" wx:for-item="ordreItem" >
+      <view class="interactiveBlock" wx:if="{{ordreItem.isShow}}">
+        <view class="block-content" bindtap="showDetail" id="{{idx}}">
+          <view class="content-block">
+            <view class="split-content title-content">
+              <text class='title'>{{ordreItem.title}}</text>
+              <van-tag round size="medium" color="{{colorList[ordreItem.goodsClassify]}}">{{ordreItem.goodsClassifyName}}</van-tag>
+            </view>
+            <text class='detail'>{{ordreItem.detailIntro}}</text>
+            <view class="split-content address">
+              <view class="address-content">
+                <van-icon name="location-o" />
+                <text class='text-content'>{{ordreItem.startPlace}}</text>
+              </view>
+              <van-icon name="logistics" />
+              <view class="address-content">
+                <van-icon name="location" />
+                <text class='text-content'>{{ordreItem.endPlace}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 底端提示 -->
+    <view class="foot">
+      <view class="foot-content" wx:if="{{isHasOrderData}}" >
+        <text class="foot-text">--------我是有底线的--------</text>
+      </view>
+      <view class="foot-content" wx:else >
+        <van-loading color="#4381dd" />
+      </view>
+    </view>
+  </view>
+</scroll-view>

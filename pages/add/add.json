@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle":"black",
+  "navigationBarTitleText":"添加订单",
+  "usingComponents": {},
+  "enablePullDownRefresh":false
+}
