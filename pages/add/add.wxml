@@ -81,7 +81,7 @@
                         required
                         clearable
                         label="联系人"
-                        placeholder="与代取物品的联系人同名"
+                        placeholder="请填写购买物品时的用户名"
                         input-align="right"
                         error='{{isFieldError[3]}}'
                         bind:blur="onOrderNameBlur"

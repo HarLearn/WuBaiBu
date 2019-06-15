@@ -30,6 +30,7 @@ Page({
     currentDate: new Date().getTime(),
     minDate:new Date(1900,10,1).getTime(),
     isUpdate:false,
+    isUserCount:0
   },
   // 确定用户的生日
   onConfirmBirthday:function(event){
@@ -106,7 +107,7 @@ Page({
     console.log('获取用户的邮箱');
     var re = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
     if (re.test(event.detail.value)) {
-      console.log("手机号是合法的")
+      console.log("邮箱是合法的");
       this.setData({
         email: event.detail.value,
         isUpdate:true
@@ -124,7 +125,7 @@ Page({
     console.log('获得用户的手机号');
     var re = /^1\d{10}$/
     if (re.test(event.detail.value)) {
-      console.log("手机号是合法的")
+      console.log("手机号是合法的");
       this.setData({
         userPhone: event.detail.value,
         isUpdate:true
@@ -172,6 +173,10 @@ Page({
     if(this.data.isUpdate){
       console.log("进入保存用户的数据");
       
+      // 判断数据是否是
+      if(that.data.realName != '' && that.data.userPhone != '' && that.data.email != ''){
+        that.data.isUserCount = 3;
+      }
       // 修改用户的一条数据
       var pointll = {
         latitude: that.data.shoolLatitude,
@@ -203,7 +208,7 @@ Page({
       app.globalData.userInfo.userShool = that.data.userShool;
       app.globalData.userInfo.userAcademy = that.data.userAcademy;
       app.globalData.userInfo.userMajor = that.data.userMajor;
-
+      app.globalData.UserOrder = that.data.isUserCount;
       wx.showToast({
         title: '信息保存成功',
         icon: 'none',

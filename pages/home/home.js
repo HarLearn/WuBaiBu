@@ -218,42 +218,55 @@ Page({
   // 弹窗的确定按钮  同意接单
   confirm: function () {
     var that = this
-    // 创建 pointer 对象
-    const pointer = Bmob.Pointer('_User')
-    const poiID = pointer.set(uInfo.globalData.userInfo.objectId)
-    // 对数据库进行修改  用户已经接单
-    const query = Bmob.Query('Orders');
-    query.set('id', that.data.popBlockData.orderId) //需要修改的objectId
-    query.set('receiver', poiID)
-    query.set('isAccept', true)
-    query.set('isShow', false)
-    query.set("orderState",'正在派送中..')
-    query.save().then(res => {
-      console.log('修改成功');
-      let testBlock = that.data.popBlockData;
-      testBlock.isAccept = true;
-      that.setData({
-        popBlockData: testBlock
+    //判断用户是否可以进行接单
+    if(uInfo.globalData.UserOrder >= 3){
+      // 创建 pointer 对象
+      const pointer = Bmob.Pointer('_User')
+      const poiID = pointer.set(uInfo.globalData.userInfo.objectId)
+      // 对数据库进行修改  用户已经接单
+      const query = Bmob.Query('Orders');
+      query.set('id', that.data.popBlockData.orderId) //需要修改的objectId
+      query.set('receiver', poiID)
+      query.set('isAccept', true)
+      query.set('isShow', false)
+      query.set("orderState",'正在派送中..')
+      query.save().then(res => {
+        console.log('修改成功');
+        let testBlock = that.data.popBlockData;
+        testBlock.isAccept = true;
+        that.setData({
+          popBlockData: testBlock
+        })
+        console.log(res)
+        wx.showToast({
+          title: '接单成功',
+          icon: 'success',
+          duration: 1500,
+          mask:true
+        })
+        that.selctData()
+      }).catch(err => {
+        console.log("修改失败");
+        console.log(err)
+        wx.showToast({
+          title: '接单失败',
+          icon: 'none',
+          duration: 1500,
+          mask:true
+        })
+      
       })
-      console.log(res)
+    }else{
       wx.showToast({
-        title: '接单成功',
-        icon: 'success',
+        title: '接单失败,请完善个人信息。',
+        icon: 'none',
         duration: 1500,
         mask:true
       })
-      that.selctData()
-    }).catch(err => {
-      console.log("修改失败");
-      console.log(err)
-      wx.showToast({
-        title: '接单失败',
-        icon: 'success',
-        duration: 1500,
-        mask:true
-      })
+    }
+
+
     
-    })
   },
 
   /**

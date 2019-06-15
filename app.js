@@ -15,6 +15,19 @@ App({
       console.log(res)
       console.log('一键登陆成功');
       this.globalData.userInfo = res;
+      // 判断用户是否可以进行接单
+      let IsUserOrder = 0;
+      if(res.hasOwnProperty('realName') && res.realName != ''){
+        IsUserOrder++;
+      }
+      if(res.hasOwnProperty('userPhone') && res.userPhone != ''){
+        IsUserOrder++;
+      }
+      if(res.hasOwnProperty('email') && res.email != ''){
+        IsUserOrder++;
+      }
+      this.globalData.UserOrder = IsUserOrder;
+      console.log(IsUserOrder);
       if(!res.hasOwnProperty('userMoneyId') || res.userMoneyId.objectId == ''){
         console.log("创建金钱和信用表")
         const query = Bmob.Query('Money');
@@ -60,6 +73,7 @@ App({
   globalData: {
     userInfo: null,
     userNativeInfo:null,
-    userMoneyId:null
+    userMoneyId:null,
+    UserOrder:0
   }
 })
